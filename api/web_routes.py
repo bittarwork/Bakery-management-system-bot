@@ -1,17 +1,9 @@
 """
-<<<<<<< HEAD
 Web API Routes and Static Pages for Bakery Management System
 This module provides REST API endpoints and web interface for the bakery management system
 """
 
 from flask import Flask, request, jsonify, render_template, send_from_directory
-=======
-Web API Routes for React.js Integration
-This module provides REST API endpoints for the bakery management system
-"""
-
-from flask import Flask, request, jsonify
->>>>>>> 0dd058f6d3dead8ce4ad6f62ae5bfc5f080f34a4
 from flask_cors import CORS
 import logging
 import sys
@@ -22,7 +14,49 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from config import config
 from database.connection import db_manager
-from ai.gemini_service import gemini_service
+
+# Try to import AI service with fallback
+try:
+    from ai.gemini_service import gemini_service
+except ImportError:
+    # Fallback to OpenAI service for Python 3.8 compatibility
+    try:
+        from ai.openai_service import openai_service as gemini_service
+    except ImportError:
+        # Create dummy service if no AI available
+        class DummyAIService:
+            def get_ai_response(self, message):
+                return {"response": "خدمة الذكاء الاصطناعي غير متوفرة حالياً", "cached": False}
+            def get_analytics_report(self, report_type):
+                return "التقارير غير متوفرة حالياً"
+            def clear_cache(self):
+                return {"success": True, "message": "لا توجد ذاكرة مؤقتة"}
+        gemini_service = DummyAIService()
+        from ai.openai_service import openai_service as gemini_service
+    except ImportError:
+        # Create dummy service if no AI available
+        class DummyAIService:
+            def get_ai_response(self, message):
+                return {"response": "خدمة الذكاء الاصطناعي غير متوفرة حالياً", "cached": False}
+            def get_analytics_report(self, report_type):
+                return "التقارير غير متوفرة حالياً"
+            def clear_cache(self):
+                return {"success": True, "message": "لا توجد ذاكرة مؤقتة"}
+        gemini_service = DummyAIService()
+except ImportError:
+    # Fallback to OpenAI service for Python 3.8 compatibility
+    try:
+        from ai.openai_service import openai_service as gemini_service
+    except ImportError:
+        # Create dummy service if no AI available
+        class DummyAIService:
+            def get_ai_response(self, message):
+                return {"response": "خدمة الذكاء الاصطناعي غير متوفرة حالياً", "cached": False}
+            def get_analytics_report(self, report_type):
+                return "التقارير غير متوفرة حالياً"
+            def clear_cache(self):
+                return {"success": True, "message": "لا توجد ذاكرة مؤقتة"}
+        gemini_service = DummyAIService()
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)

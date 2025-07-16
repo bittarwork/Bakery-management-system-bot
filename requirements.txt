@@ -1,5 +1,6 @@
 # Core AI and Database Requirements
-google-generativeai==0.8.5
+# google-generativeai==0.8.5  # يتطلب Python 3.9+
+openai==0.28.1
 PyMySQL==1.1.0
 sqlalchemy==2.0.23
 python-dotenv==1.0.0
@@ -10,4 +11,4 @@ flask-cors==4.0.0
 
 # Optional: Additional tools
 requests==2.31.0
-asyncio==3.4.3 
+# asyncio==3.4.3  # مدمج في Python 3.8+ 

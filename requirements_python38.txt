@@ -1,0 +1,9 @@
+Flask==2.3.3
+Flask-CORS==4.0.0
+PyMySQL==1.1.0
+requests==2.31.0
+pydantic==2.5.0
+python-dotenv==1.0.0
+openai==0.28.1
+# google-generativeai مُعطل للتوافق مع Python 3.8
+# يمكن استخدام OpenAI بدلاً منه أو ترقية Python 
