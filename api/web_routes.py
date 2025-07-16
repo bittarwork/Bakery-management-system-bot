@@ -1,9 +1,17 @@
 """
+<<<<<<< HEAD
 Web API Routes and Static Pages for Bakery Management System
 This module provides REST API endpoints and web interface for the bakery management system
 """
 
 from flask import Flask, request, jsonify, render_template, send_from_directory
+=======
+Web API Routes for React.js Integration
+This module provides REST API endpoints for the bakery management system
+"""
+
+from flask import Flask, request, jsonify
+>>>>>>> 0dd058f6d3dead8ce4ad6f62ae5bfc5f080f34a4
 from flask_cors import CORS
 import logging
 import sys
@@ -21,6 +29,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Create Flask app
+<<<<<<< HEAD
 app = Flask(__name__, 
             template_folder='../templates',
             static_folder='../static')
@@ -39,6 +48,12 @@ def index():
 def static_files(filename):
     """Serve static files"""
     return send_from_directory('../static', filename)
+=======
+app = Flask(__name__)
+
+# Enable CORS for React integration
+CORS(app, origins=["http://localhost:3000", "http://localhost:3001", "http://localhost:5173"])
+>>>>>>> 0dd058f6d3dead8ce4ad6f62ae5bfc5f080f34a4
 
 # Health check endpoint
 @app.route('/api/health', methods=['GET'])
