@@ -1,0 +1,13 @@
+# Core AI and Database Requirements
+google-generativeai==0.8.5
+PyMySQL==1.1.0
+sqlalchemy==2.0.23
+python-dotenv==1.0.0
+
+# Web API Requirements for React Integration
+flask==2.3.3
+flask-cors==4.0.0
+
+# Optional: Additional tools
+requests==2.31.0
+asyncio==3.4.3 
