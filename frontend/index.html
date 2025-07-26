@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/bakery-icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="نظام إدارة المخبز المتقدم مع الذكاء الاصطناعي - إدارة شاملة للمنتجات، الطلبات، والموزعين" />
+    <meta name="keywords" content="مخبز، إدارة، ذكاء اصطناعي، طلبات، منتجات، توزيع" />
+    <meta name="author" content="Bakery Management Team" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="نظام إدارة المخبز - MERN Stack" />
+    <meta property="og:description" content="نظام متقدم لإدارة المخابز مع دمج الذكاء الاصطناعي" />
+    <meta property="og:type" content="website" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <link href="./src/styles/index.css" rel="stylesheet">
+
+    <title>نظام إدارة المخبز - BakeryBot Pro</title>
+</head>
+
+<body class="bg-gray-50 font-arabic">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
+        <div class="text-center">
+            <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600"></div>
+            <p class="mt-4 text-gray-600">جاري التحميل...</p>
+        </div>
+    </div>
+
+    <!-- App Root -->
+    <div id="root"></div>
+
+    <!-- Scripts -->
+    <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Remove loading screen after app loads -->
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loadingScreen = document.getElementById('loading-screen');
+                if (loadingScreen) {
+                    loadingScreen.style.opacity = '0';
+                    setTimeout(() => loadingScreen.remove(), 300);
+                }
+            }, 500);
+        });
+    </script>
+</body>
+
+</html>
